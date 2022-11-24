@@ -7,6 +7,5 @@ using UnityEngine;
 public class UpdateScoreRequestData
 {
     public string Name;
-    public int Token;
     public int Score;
 }

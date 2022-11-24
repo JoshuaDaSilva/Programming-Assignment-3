@@ -139,8 +139,9 @@ public class NetworkManager : MonoBehaviour
 
     public IEnumerator UpdateScore(string uri, string initials, int level)
     {
-        LoginRequestData reqData = new LoginRequestData();
+        UpdateScoreRequestData reqData = new UpdateScoreRequestData();
         reqData.Name = initials;
+        reqData.Score = level;
 
         string dataAsJSON = JsonUtility.ToJson(reqData);
 
@@ -169,12 +170,6 @@ public class NetworkManager : MonoBehaviour
         else
         {
             Debug.Log("Response Received " + req.downloadHandler.text);
-
-            UpdateScoreRequestData LRresponse = JsonUtility.FromJson<UpdateScoreRequestData>(req.downloadHandler.text);
-
-            Debug.Log(LRresponse.Name);
-            Debug.Log(LRresponse.Score);
-            Debug.Log(LRresponse.Token);
         }
     }
 }
